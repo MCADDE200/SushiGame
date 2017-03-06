@@ -10,8 +10,8 @@ public class PlayerScript : MonoBehaviour {
 	public bool jump = false;
 	public bool wallJump = true;
     bool facingRight = true;
-	public bool canKillP2 = false;
-	public bool canKillP3 = false;
+	bool canKillP2 = false;
+	bool canKillP3 = false;
 	bool canKillP4 = false;
 
 	public Rigidbody2D rigidBody2D;

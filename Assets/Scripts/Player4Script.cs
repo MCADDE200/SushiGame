@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class Player3Script : MonoBehaviour {
+public class Player4Script : MonoBehaviour {
 
 
 	bool onGround;
@@ -11,8 +11,8 @@ public class Player3Script : MonoBehaviour {
 	public bool wallJump = true;
 	bool facingRight = true;
 	bool canKillP1 = false;
+	bool canKillP3 = false;
 	bool canKillP2 = false;
-	bool canKillP4 = false;
 
 	public Rigidbody2D rigidBody2D;
 
@@ -29,14 +29,14 @@ public class Player3Script : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		horizontal = Input.GetAxisRaw("Horizontal3");
+		horizontal = Input.GetAxisRaw("Horizontal4");
 
 
 		//Checks to see if the player is on the ground or against the wall
 		onGround = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer ("Ground"));
 		onWall = Physics2D.Linecast(transform.position, wallCheck.position, 1 << LayerMask.NameToLayer ("Wall"));
 
-		if (Input.GetButtonDown ("Jump3")) {
+		if (Input.GetButtonDown ("Jump4")) {
 			if ((onGround) && (jump == false)) {
 				wallJump = true;
 				jump = true;
@@ -47,21 +47,21 @@ public class Player3Script : MonoBehaviour {
 				wallJump = false;
 			}
 		}
-		if (Input.GetButtonDown("Fire3"))
+		if (Input.GetButtonDown("Fire4"))
 		{
 			if (canKillP1) {
 				Destroy (GameObject.Find("Player1"));
 				canKillP1 = false;
 			}
 
+			if (canKillP3) {
+				Destroy (GameObject.Find("Player3"));
+				canKillP3 = false;
+			}
+
 			if (canKillP2) {
 				Destroy (GameObject.Find("Player2"));
 				canKillP2 = false;
-			}
-
-			if (canKillP4) {
-				Destroy (GameObject.Find("Player4"));
-				canKillP4 = false;
 			}
 		}
 
@@ -122,14 +122,14 @@ public class Player3Script : MonoBehaviour {
 			canKillP1 = true;
 		}
 
+		if(other.gameObject.name.Equals("Player3"))
+		{
+			canKillP3 = true;
+		}
+
 		if(other.gameObject.name.Equals("Player2"))
 		{
 			canKillP2 = true;
-		}
-
-		if(other.gameObject.name.Equals("Player4"))
-		{
-			canKillP4 = true;
 		}
 	}
 	void OnTriggerExit2D(Collider2D other)
@@ -139,14 +139,14 @@ public class Player3Script : MonoBehaviour {
 			canKillP1 = false;
 		}
 
+		if(other.gameObject.name.Equals("Player3"))
+		{
+			canKillP3 = false;
+		}
+
 		if(other.gameObject.name.Equals("Player2"))
 		{
 			canKillP2 = false;
-		}
-
-		if(other.gameObject.name.Equals("Player4"))
-		{
-			canKillP4 = false;
 		}
 	}
 }

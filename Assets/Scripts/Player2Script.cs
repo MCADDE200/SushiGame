@@ -5,26 +5,21 @@ using System.Collections;
 public class Player2Script : MonoBehaviour {
 
 
-	public bool onGround;
-	public bool onRWall;
-	public bool onLWall;
-	bool jump = false;
+	bool onGround;
+	public bool onWall;
+	public bool jump = false;
 	public bool wallJump = true;
+	bool facingRight = true;
+	bool canKillP1 = false;
+	bool canKillP3 = false;
+	bool canKillP4 = false;
 
 	public Rigidbody2D rigidBody2D;
 
 	public Transform groundCheck;
-	public Transform wallCheckR;
-	public Transform wallCheckL;
+	public Transform wallCheck;
 
 	public float horizontal = 0f;
-
-	//Events
-	public delegate void checkAttack();
-
-	public event checkAttack onCheckAttack;
-
-	//public LayerMask ground;
 
 
 	// Use this for initialization
@@ -35,24 +30,41 @@ public class Player2Script : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		horizontal = Input.GetAxisRaw("Horizontal2");
-		//
-		//		
-		//		if (horizontal > 0f) {
-		//			transform.Translate (0.05f, 0, 0);
-		//		}else if (horizontal < 0f){
-		//			transform.Translate (-0.05f, 0, 0);
-		//		}
-		//
-		//		if(Input.GetButtonDown("Jump"))
-		//		{
-		//			StartCoroutine(LerpPosition(transform.position, transform.position + new Vector3(0, 1, 0)));
-		//			//transform.Translate (0, 1, 0);
-		//		}
+
 
 		//Checks to see if the player is on the ground or against the wall
 		onGround = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer ("Ground"));
-		onRWall = Physics2D.Linecast(transform.position, wallCheckR.position, 1 << LayerMask.NameToLayer ("Wall"));
-		onLWall = Physics2D.Linecast(transform.position, wallCheckL.position, 1 << LayerMask.NameToLayer ("Wall"));
+		onWall = Physics2D.Linecast(transform.position, wallCheck.position, 1 << LayerMask.NameToLayer ("Wall"));
+
+		if (Input.GetButtonDown ("Jump2")) {
+			if ((onGround) && (jump == false)) {
+				wallJump = true;
+				jump = true;
+			}
+			if (((onWall) && (!jump) && (wallJump)))
+			{
+				jump = true;
+				wallJump = false;
+			}
+		}
+		if (Input.GetButtonDown("Fire2"))
+		{
+			if (canKillP1) {
+				Destroy (GameObject.Find("Player1"));
+				canKillP1 = false;
+			}
+
+			if (canKillP3) {
+				Destroy (GameObject.Find("Player3"));
+				canKillP3 = false;
+			}
+
+			if (canKillP4) {
+				Destroy (GameObject.Find("Player4"));
+				canKillP4 = false;
+			}
+		}
+
 	}
 
 	void FixedUpdate() {
@@ -65,7 +77,7 @@ public class Player2Script : MonoBehaviour {
 		//		} else {
 		//			anim.SetBool ("Walking", false);
 		//		}
-		//
+
 		//Handles the player movement
 		if (jump == true) {
 			moveForce = 2f;
@@ -81,55 +93,60 @@ public class Player2Script : MonoBehaviour {
 
 
 
-		//		if (horizontal > 0 && !facingRight)
-		//			Flip ();
-		//		else if (horizontal < 0 && facingRight)
-		//			Flip ();
+		if (horizontal > 0 && !facingRight)
+			Flip();
+		else if (horizontal < 0 && facingRight)
+			Flip();
 
-		//This will handle the jump
-		if (onGround)
-		{
-			wallJump = false;
-		}
-
-		if (Input.GetButtonDown ("Jump2")) {
-			if ((onGround) && (jump == false)) {
-				jump = true;
-				wallJump = true;
-			}
-			if (((onLWall) && (!jump) && (wallJump)) || ((onRWall) && (!jump) && (wallJump)))
-			{
-				jump = true;
-				wallJump = false;
-			}
-		}
 
 		if (jump == true) {
 			rigidBody2D.AddForce (new Vector3 (0.0f, jumpPower, 0.0f));
 			jump = false;
 		}
 
-		if (Input.GetButtonDown("Fire2"))
-		{
-			onCheckAttack ();
-		}
+
 	}
 
-	//	void Flip() {
-	//		facingRight = !facingRight;
-	//		Vector3 theScale = transform.localScale;
-	//		theScale.x *= -1;
-	//		transform.localScale = theScale;
-	//	}
-	//
-	IEnumerator LerpPosition(Vector3 start, Vector3 end)
+	void Flip()
 	{
-		float currentTime = 0;
-		float totalTime = 0.2f;
-		while (currentTime < totalTime) {
-			currentTime += Time.deltaTime;
-			transform.position = Vector3.Lerp(start, end, currentTime/totalTime);
-			yield return 0;
+		facingRight = !facingRight;
+		Vector3 theScale = transform.localScale;
+		theScale.x *= -1;
+		transform.localScale = theScale;
+	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if(other.gameObject.name.Equals("Player1"))
+		{
+			canKillP1 = true;
+		}
+
+		if(other.gameObject.name.Equals("Player3"))
+		{
+			canKillP3 = true;
+		}
+
+		if(other.gameObject.name.Equals("Player4"))
+		{
+			canKillP4 = true;
+		}
+	}
+	void OnTriggerExit2D(Collider2D other)
+	{
+		if(other.gameObject.name.Equals("Player1"))
+		{
+			canKillP1 = false;
+		}
+
+		if(other.gameObject.name.Equals("Player3"))
+		{
+			canKillP3 = false;
+		}
+
+		if(other.gameObject.name.Equals("Player4"))
+		{
+			canKillP4 = false;
 		}
 	}
 }
