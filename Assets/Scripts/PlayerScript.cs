@@ -68,8 +68,8 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		int jumpPower = 250;
-		float maxSpeed = 2f;
+		int jumpPower = 300;
+		float maxSpeed = 3f;
 		float moveForce = 20f;
 
 //		if (horizontal != 0f && anim.GetBool("Jump") == false) {
