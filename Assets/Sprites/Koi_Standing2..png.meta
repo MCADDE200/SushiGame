@@ -1,0 +1,286 @@
+fileFormatVersion: 2
+guid: 7e5f0c85d7ab59447bcd3f01d169bebd
+timeCreated: 1488963235
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Koi_Standing2._0
+    21300002: Koi_Standing2._1
+    21300004: Koi_Standing2._2
+    21300006: Koi_Standing2._3
+    21300008: Koi_Standing2._4
+    21300010: Koi_Standing2._5
+    21300012: Koi_Standing2._6
+    21300014: Koi_Standing2._7
+    21300016: Koi_Standing2._8
+    21300018: Koi_Standing2._9
+    21300020: Koi_Standing2._10
+    21300022: Koi_Standing2._11
+    21300024: Koi_Standing2._12
+    21300026: Koi_Standing2._13
+    21300028: Koi_Standing2._14
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Koi_Standing2._0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 1707
+        width: 353
+        height: 289
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Koi_Standing2._1
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 1713
+        width: 371
+        height: 294
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Koi_Standing2._2
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 1706
+        width: 334
+        height: 297
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Koi_Standing2._3
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1701
+        width: 336
+        height: 304
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Koi_Standing2._4
+      rect:
+        serializedVersion: 2
+        x: 1516
+        y: 1694
+        width: 325
+        height: 313
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Koi_Standing2._5
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 1385
+        width: 297
+        height: 297
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Koi_Standing2._6
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 1378
+        width: 307
+        height: 298
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Koi_Standing2._7
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 1365
+        width: 357
+        height: 310
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Koi_Standing2._8
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1371
+        width: 390
+        height: 309
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Koi_Standing2._9
+      rect:
+        serializedVersion: 2
+        x: 1550
+        y: 1371
+        width: 378
+        height: 302
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Koi_Standing2._10
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 1047
+        width: 363
+        height: 295
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Koi_Standing2._11
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 1034
+        width: 372
+        height: 306
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Koi_Standing2._12
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 1032
+        width: 366
+        height: 310
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Koi_Standing2._13
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 1017
+        width: 384
+        height: 324
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Koi_Standing2._14
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 1023
+        width: 380
+        height: 305
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
