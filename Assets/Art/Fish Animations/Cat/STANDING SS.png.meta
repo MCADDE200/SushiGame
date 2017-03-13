@@ -1,0 +1,311 @@
+fileFormatVersion: 2
+guid: c5c129ebce8a73f49ad232ffc51582b0
+timeCreated: 1489058784
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: STANDING SS_0
+    21300002: STANDING SS_1
+    21300004: STANDING SS_2
+    21300006: STANDING SS_3
+    21300008: STANDING SS_4
+    21300010: STANDING SS_5
+    21300012: STANDING SS_6
+    21300014: STANDING SS_7
+    21300016: STANDING SS_8
+    21300018: STANDING SS_9
+    21300020: STANDING SS_10
+    21300022: STANDING SS_11
+    21300024: STANDING SS_12
+    21300026: STANDING SS_13
+    21300028: STANDING SS_14
+    21300030: STANDING SS_15
+    21300032: STANDING SS_16
+    21300034: STANDING SS_17
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: STANDING SS_0
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 799
+        width: 271
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: STANDING SS_1
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 794
+        width: 279
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: STANDING SS_2
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 788
+        width: 283
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: STANDING SS_3
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 786
+        width: 286
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: STANDING SS_4
+      rect:
+        serializedVersion: 2
+        x: 1259
+        y: 779
+        width: 293
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: STANDING SS_5
+      rect:
+        serializedVersion: 2
+        x: 1583
+        y: 770
+        width: 309
+        height: 261
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: STANDING SS_6
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 531
+        width: 285
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: STANDING SS_7
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 522
+        width: 309
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: STANDING SS_8
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 518
+        width: 309
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: STANDING SS_9
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 531
+        width: 291
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: STANDING SS_10
+      rect:
+        serializedVersion: 2
+        x: 1265
+        y: 515
+        width: 299
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: STANDING SS_11
+      rect:
+        serializedVersion: 2
+        x: 1582
+        y: 512
+        width: 287
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: STANDING SS_12
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 221
+        width: 303
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: STANDING SS_13
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 216
+        width: 291
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: STANDING SS_14
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 223
+        width: 284
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: STANDING SS_15
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 171
+        width: 292
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: STANDING SS_16
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 194
+        width: 287
+        height: 286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: STANDING SS_17
+      rect:
+        serializedVersion: 2
+        x: 1594
+        y: 215
+        width: 284
+        height: 263
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

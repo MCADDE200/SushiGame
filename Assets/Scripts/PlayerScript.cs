@@ -21,6 +21,13 @@ public class PlayerScript : MonoBehaviour {
     
     public float horizontal = 0f;
 
+	Animator anim;
+
+
+	void Awake () {
+		//rigidBody2D = GetComponent<Rigidbody2D>();
+		anim = GetComponent<Animator> ();  
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -36,19 +43,28 @@ public class PlayerScript : MonoBehaviour {
 		onGround = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer ("Ground"));
 		onWall = Physics2D.Linecast(transform.position, wallCheck.position, 1 << LayerMask.NameToLayer ("Wall"));
 
-		if (Input.GetButtonDown ("Jump")) {
+		if (Input.GetButtonDown ("Jump"))
+			{
 			if ((onGround) && (jump == false)) {
 				wallJump = true;
 				jump = true;
+				anim.SetBool("Jump", true);
+				StartCoroutine (Jump ());
 			}
 			if (((onWall) && (!jump) && (wallJump)))
 			{
+				anim.SetBool("Jump", false);
+				anim.SetBool("Jump", true);
+				StartCoroutine (Jump ());
 				jump = true;
 				wallJump = false;
 			}
 		}
+
 		if (Input.GetButtonDown("Fire1"))
 		{
+			anim.SetBool ("Attack", true);
+			StartCoroutine (Attack ());
 			if (canKillP2) {
 				Destroy (GameObject.Find("Player2"));
 				canKillP2 = false;
@@ -68,15 +84,15 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		int jumpPower = 250;
-		float maxSpeed = 2f;
+		int jumpPower = 300;
+		float maxSpeed = 3f;
 		float moveForce = 20f;
 
-//		if (horizontal != 0f && anim.GetBool("Jump") == false) {
-//			anim.SetBool ("Walking", true);
-//		} else {
-//			anim.SetBool ("Walking", false);
-//		}
+		if (horizontal != 0f && anim.GetBool("Jump") == false) {
+			anim.SetBool ("Moving", true);
+		} else {
+			anim.SetBool ("Moving", false);
+		}
 
         //Handles the player movement
 		if (jump == true) {
@@ -148,6 +164,18 @@ public class PlayerScript : MonoBehaviour {
 		{
 			canKillP4 = false;
 		}
+	}
+
+	IEnumerator Attack()
+	{
+		yield return new WaitForSeconds (0.3f);
+		anim.SetBool ("Attack", false);
+	}
+
+	IEnumerator Jump()
+	{
+		yield return new WaitForSeconds (0.3f);
+		anim.SetBool ("Jump", false);
 	}
 }
 

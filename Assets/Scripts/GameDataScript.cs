@@ -163,6 +163,6 @@ public class GameDataScript : MonoBehaviour {
 		player2Alive = true;
 		player3Alive = true;
 		player4Alive = true;
-		Application.LoadLevel ("Level2");
+		Application.LoadLevel ("ScoreboardScene");
 	}
 }
