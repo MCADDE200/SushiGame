@@ -7,6 +7,7 @@ public class GameDataScript : MonoBehaviour {
 	public int player2Score = 0;
 	public int player3Score = 0;
 	public int player4Score = 0;
+	int roundNum = 1;
 
 	public bool firstDeath = false;
 	bool secondDeath = false;
@@ -26,7 +27,7 @@ public class GameDataScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		DontDestroyOnLoad (this);
+		DontDestroyOnLoad (this); 
 	}
 	
 	// Update is called once per frame
@@ -183,7 +184,7 @@ public class GameDataScript : MonoBehaviour {
 
 	IEnumerator NextRound(){
 		//Show score or winner or suhin here
-		yield return new WaitForSeconds(1);
+		yield return new WaitForSeconds(3);
 		firstDeath = false;
 		secondDeath = false;
 		thirdDeath = false;
@@ -192,7 +193,16 @@ public class GameDataScript : MonoBehaviour {
 		player2Alive = true;
 		player3Alive = true;
 		player4Alive = true;
-		Application.LoadLevel ("ScoreboardScene");
-        inLevel = false;
+		if (roundNum != 5)
+		{
+			roundNum++;
+			Application.LoadLevel ("ScoreboardScene");
+		}
+		if(roundNum == 5)
+		{
+			roundNum = 0;
+			Application.LoadLevel ("EndScene");
+		}
+		inLevel = false;
 	}
 }

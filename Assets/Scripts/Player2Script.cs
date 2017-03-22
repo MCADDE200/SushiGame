@@ -86,25 +86,12 @@ public class Player2Script : MonoBehaviour {
 		if (Input.GetButtonDown("Fire2"))
 		{
 			anim.SetBool ("Attack", true);
+			player2Attacking = true;
 			StartCoroutine (Attack ());
 			GameObject player1 = GameObject.Find ("Player1");
 			if (player1 != null) {
 				PlayerScript playerScript = player1.GetComponent<PlayerScript> ();
-				if ((canKillP1) && (playerScript.player1Attacking == false)) {
-					Destroy (GameObject.Find ("Player1"));
-					canKillP1 = false;
-				}
-				if ((canKillP1) && (playerScript.player1Attacking == true)) {
-					if (facingRight) {
-						player1.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (200f, 0.0f));
-						rigidBody2D.AddForce (new Vector2 (-200f, 0.0f));
-					}
-					if (!facingRight) {
-						player1.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (-200f, 0.0f));
-						rigidBody2D.AddForce (new Vector2 (200f, 0.0f));
-					}
-
-				}
+				StartCoroutine (DestroyPlayer (player1));
 			}
 
 			if (canKillP3) {
@@ -218,10 +205,31 @@ public class Player2Script : MonoBehaviour {
 
 	IEnumerator Attack()
 	{
-		player2Attacking = true;
+		//player2Attacking = true;
 		yield return new WaitForSeconds (0.3f);
 		anim.SetBool ("Attack", false);
 		player2Attacking = false;
+	}
+
+	IEnumerator DestroyPlayer(GameObject a)
+	{
+		yield return new WaitForSeconds (0.2f);
+		PlayerScript playerScript = a.GetComponent<PlayerScript> ();
+		if ((canKillP1) && (playerScript.player1Attacking == false)) {
+			Destroy (GameObject.Find ("Player1"), 0.5f);
+			canKillP1 = false;
+		}
+		if ((canKillP1) && (playerScript.player1Attacking == true)) {
+			if (facingRight) {
+				a.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (200f, 0.0f));
+				rigidBody2D.AddForce (new Vector2 (-200f, 0.0f));
+			}
+			if (!facingRight) {
+				a.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (-200f, 0.0f));
+				rigidBody2D.AddForce (new Vector2 (200f, 0.0f));
+			}
+
+		}
 	}
 
 	IEnumerator Jump()

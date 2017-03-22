@@ -88,25 +88,12 @@ public class PlayerScript : MonoBehaviour {
 		if (Input.GetButtonDown("Fire1"))
 		{
 			anim.SetBool ("Attack", true);
+			player1Attacking = true;
 			StartCoroutine (Attack ());
 			GameObject player2 = GameObject.Find ("Player2");
 			if (player2 != null) {
+				StartCoroutine (DestroyPlayer (player2));
 				Player2Script player2Script = player2.GetComponent<Player2Script> ();
-				if ((canKillP2) && (player2Script.player2Attacking == false)) {
-					Destroy (GameObject.Find ("Player2"));
-					canKillP2 = false;
-				}
-				if ((canKillP2) && (player2Script.player2Attacking == true)) {
-					if (facingRight) {
-						player2.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (200f, 0.0f));
-						rigidBody2D.AddForce (new Vector2 (-200f, 0.0f));
-					}
-					if (!facingRight) {
-						player2.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (-200f, 0.0f));
-						rigidBody2D.AddForce (new Vector2 (200f, 0.0f));
-					}
-
-				}
 			}
 
 			if (canKillP3) {
@@ -220,10 +207,37 @@ public class PlayerScript : MonoBehaviour {
 
 	IEnumerator Attack()
 	{
-		player1Attacking = true;
+		//player1Attacking = true;
 		yield return new WaitForSeconds (0.3f);
 		anim.SetBool ("Attack", false);
 		player1Attacking = false;
+	}
+
+	IEnumerator DestroyPlayer(GameObject a)
+	{
+		yield return new WaitForSeconds (0.2f);
+		Player2Script player2Script = a.GetComponent<Player2Script> ();
+		if ((canKillP2) && (player2Script.player2Attacking == false)) {
+			Destroy (GameObject.Find ("Player2"), 0.5f);
+			canKillP2 = false;
+		}
+		if ((canKillP2) && (player2Script.player2Attacking == true)) {
+			if (facingRight) {
+				a.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (200f, 0.0f));
+				rigidBody2D.AddForce (new Vector2 (-200f, 0.0f));
+			}
+			else{
+				//Destroy (GameObject.Find ("Player2"), 0.5f);
+			}
+			if (!facingRight) {
+				a.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (-200f, 0.0f));
+				rigidBody2D.AddForce (new Vector2 (200f, 0.0f));
+			}
+			else{
+				//Destroy (GameObject.Find ("Player2"), 0.5f);
+			}
+
+		}
 	}
 
 	IEnumerator Jump()
