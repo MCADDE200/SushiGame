@@ -13,6 +13,16 @@ public class Player2Script : MonoBehaviour {
 	bool canKillP1 = false;
 	bool canKillP3 = false;
 	bool canKillP4 = false;
+	public bool riceThrow;
+	public bool p2Throw;
+
+	public bool stuck;
+	public bool player2Attacking;
+
+	public GameObject riceSpawn;
+	public GameObject throwingRice;
+
+	//float projectileSpeed = 20f;
 
 	public Rigidbody2D rigidBody2D;
 
@@ -37,10 +47,23 @@ public class Player2Script : MonoBehaviour {
 	void Update () {
 		horizontal = Input.GetAxisRaw("Horizontal2");
 
-
+		if (stuck) {
+			StartCoroutine (UnStick ());
+		}
 		//Checks to see if the player is on the ground or against the wall
 		onGround = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer ("Ground"));
 		onWall = Physics2D.Linecast(transform.position, wallCheck.position, 1 << LayerMask.NameToLayer ("Wall"));
+
+		GameObject gameData = GameObject.Find ("GameData");
+		if (gameData != null) {
+			GameDataScript gameDataScript = gameData.GetComponent<GameDataScript> ();
+			if (!facingRight) {
+				gameDataScript.p2riceSpeed = -200f;
+			}
+			if (facingRight) {
+				gameDataScript.p2riceSpeed = 200f;
+			}
+		}
 
 		if (Input.GetButtonDown ("Jump2"))
 		{
@@ -64,9 +87,24 @@ public class Player2Script : MonoBehaviour {
 		{
 			anim.SetBool ("Attack", true);
 			StartCoroutine (Attack ());
-			if (canKillP1) {
-				Destroy (GameObject.Find("Player1"));
-				canKillP1 = false;
+			GameObject player1 = GameObject.Find ("Player1");
+			if (player1 != null) {
+				PlayerScript playerScript = player1.GetComponent<PlayerScript> ();
+				if ((canKillP1) && (playerScript.player1Attacking == false)) {
+					Destroy (GameObject.Find ("Player1"));
+					canKillP1 = false;
+				}
+				if ((canKillP1) && (playerScript.player1Attacking == true)) {
+					if (facingRight) {
+						player1.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (200f, 0.0f));
+						rigidBody2D.AddForce (new Vector2 (-200f, 0.0f));
+					}
+					if (!facingRight) {
+						player1.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (-200f, 0.0f));
+						rigidBody2D.AddForce (new Vector2 (200f, 0.0f));
+					}
+
+				}
 			}
 
 			if (canKillP3) {
@@ -77,6 +115,14 @@ public class Player2Script : MonoBehaviour {
 			if (canKillP4) {
 				Destroy (GameObject.Find("Player4"));
 				canKillP4 = false;
+			}
+		}
+
+		if (Input.GetButtonDown ("Secondary2")) {
+			if (riceThrow) {
+				p2Throw = true;
+				StartCoroutine (Rice ());
+				riceThrow = false;
 			}
 		}
 
@@ -94,16 +140,16 @@ public class Player2Script : MonoBehaviour {
 		}
 
 		//Handles the player movement
-		if (jump == true) {
+		if (jump == true && (!stuck)) {
 			moveForce = 2f;
 		} else {
 			moveForce = 10f;
 		}
 
-		if ((horizontal * rigidBody2D.velocity.x) < maxSpeed)
+		if ((horizontal * rigidBody2D.velocity.x) < maxSpeed && (!stuck))
 			rigidBody2D.AddForce(Vector3.right * horizontal * moveForce);
 
-		if (Mathf.Abs (rigidBody2D.velocity.x) > maxSpeed)
+		if (Mathf.Abs (rigidBody2D.velocity.x) > maxSpeed && (!stuck))
 			rigidBody2D.velocity = new Vector3(Mathf.Sign (rigidBody2D.velocity.x) * maxSpeed, rigidBody2D.velocity.y, 0.0f);
 
 
@@ -146,6 +192,11 @@ public class Player2Script : MonoBehaviour {
 		{
 			canKillP4 = true;
 		}
+
+		if (other.gameObject.name.Equals ("Rice(Clone)")) {
+			riceThrow = true;
+			Destroy (GameObject.Find ("Rice(Clone)"));
+		}
 	}
 	void OnTriggerExit2D(Collider2D other)
 	{
@@ -167,13 +218,36 @@ public class Player2Script : MonoBehaviour {
 
 	IEnumerator Attack()
 	{
+		player2Attacking = true;
 		yield return new WaitForSeconds (0.3f);
 		anim.SetBool ("Attack", false);
+		player2Attacking = false;
 	}
 
 	IEnumerator Jump()
 	{
 		yield return new WaitForSeconds (0.3f);
 		anim.SetBool ("Jump", false);
+	}
+
+	IEnumerator Rice() {
+		if (facingRight) {
+			GameObject Rice = (GameObject)Instantiate (throwingRice);
+			Rice.transform.position = riceSpawn.transform.position;
+			Rice.name = "Sticky Rice";
+			yield return new WaitForSeconds (0.5f);
+		} /*else {
+			GameObject Projectile = (GameObject)Instantiate (projectileLeft);
+			Projectile.transform.position = projectileSpawn.transform.position;
+			Projectile.name = "bullet";
+		}
+		yield return new WaitForSeconds (0.5f);
+		//anim.SetBool ("Throw", false);*/
+	}
+
+	IEnumerator UnStick()
+	{
+		yield return new WaitForSeconds (5f);
+		stuck = false;
 	}
 }

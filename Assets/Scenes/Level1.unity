@@ -234,6 +234,7 @@ Transform:
   m_Children:
   - {fileID: 1425196915}
   - {fileID: 894384330}
+  - {fileID: 373720991}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!114 &88141892
@@ -250,9 +251,16 @@ MonoBehaviour:
   onWall: 0
   jump: 0
   wallJump: 1
+  riceThrow: 0
+  p1Throw: 0
   rigidBody2D: {fileID: 88141893}
   groundCheck: {fileID: 1425196915}
   wallCheck: {fileID: 894384330}
+  stuck: 0
+  player1Attacking: 0
+  riceSpawn: {fileID: 373720990}
+  throwingRice: {fileID: 1000010311777892, guid: 4ff413f43aeecd24d9659c55520e84ce,
+    type: 2}
   horizontal: 0
 --- !u!50 &88141893
 Rigidbody2D:
@@ -325,6 +333,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 150546320}
   - 114: {fileID: 150546321}
+  - 114: {fileID: 150546322}
   m_Layer: 0
   m_Name: LevelObject
   m_TagString: Untagged
@@ -356,6 +365,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b515295a19cb7f24fb04c6408e1181c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &150546322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 150546319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5196cf8b708812418426572fd8026fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rice: {fileID: 1000010171799558, guid: 8dd928aae84efdd45b6bb7be9a78a6a1, type: 2}
+  other: {fileID: 1000011225881544, guid: 32acf0905bb70fe4c964713850fb299b, type: 2}
 --- !u!1 &227322125
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,6 +506,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 227322126}
   m_RootOrder: 6
+--- !u!1 &373720990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 373720991}
+  m_Layer: 0
+  m_Name: riceSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &373720991
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 373720990}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.4, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 88141891}
+  m_RootOrder: 2
 --- !u!1 &467080071
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,6 +611,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 227322126}
   m_RootOrder: 2
+--- !u!1 &502295086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 502295087}
+  m_Layer: 0
+  m_Name: PowerUp Location 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &502295087
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 502295086}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.64, y: -1.36, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
 --- !u!1 &604546384
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,6 +870,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 227322126}
   m_RootOrder: 5
+--- !u!1 &769954678
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 769954679}
+  m_Layer: 0
+  m_Name: riceSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &769954679
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 769954678}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.57, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1903597930}
+  m_RootOrder: 2
 --- !u!1 &801568903
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,6 +975,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 227322126}
   m_RootOrder: 10
+--- !u!1 &816391139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 816391140}
+  m_Layer: 0
+  m_Name: PowerUp Location 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &816391140
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 816391139}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 4.41, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
 --- !u!1 &836037692
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,7 +1187,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ae51bf76b146e3841a2b649ccbecc087, type: 2}
+  - {fileID: 2100000, guid: 5662328618bf9194bbd07b421a6a9bd2, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -1706,7 +1840,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1492640223}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 0, z: 0}
+  m_LocalPosition: {x: 2.47, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -1811,7 +1945,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1570340636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: -1.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -2212,6 +2346,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 227322126}
   m_RootOrder: 9
+--- !u!1 &1783389826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1783389827}
+  m_Layer: 0
+  m_Name: PowerUp Location 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1783389827
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1783389826}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.42, y: -1.41, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
 --- !u!1 &1875661460
 GameObject:
   m_ObjectHideFlags: 0
@@ -2433,6 +2595,7 @@ Transform:
   m_Children:
   - {fileID: 1570340637}
   - {fileID: 1492640224}
+  - {fileID: 769954679}
   m_Father: {fileID: 0}
   m_RootOrder: 1
 --- !u!50 &1903597931
@@ -2451,7 +2614,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1903597932
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2480,6 +2643,13 @@ MonoBehaviour:
   onWall: 0
   jump: 0
   wallJump: 1
+  riceThrow: 0
+  p2Throw: 0
+  stuck: 0
+  player2Attacking: 0
+  riceSpawn: {fileID: 769954678}
+  throwingRice: {fileID: 1000010311777892, guid: 4ff413f43aeecd24d9659c55520e84ce,
+    type: 2}
   rigidBody2D: {fileID: 1903597931}
   groundCheck: {fileID: 1570340637}
   wallCheck: {fileID: 1492640224}

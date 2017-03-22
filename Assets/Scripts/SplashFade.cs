@@ -16,6 +16,8 @@ public class SplashFade : MonoBehaviour {
         FadeOut();
         yield return new WaitForSeconds(2.5f);
 		Application.LoadLevel ("Level1");
+        GameDataScript gameDataScript = GameObject.Find("GameData").GetComponent<GameDataScript>();
+        gameDataScript.inLevel = true;
     }
 	
     void FadeIn()
