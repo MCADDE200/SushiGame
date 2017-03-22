@@ -129,7 +129,7 @@ public class Player2Script : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		int jumpPower = 250;
+		int jumpPower = 300;
 		float maxSpeed = 2f;
 		float moveForce = 20f;
 
@@ -231,12 +231,12 @@ public class Player2Script : MonoBehaviour {
 	}
 
 	IEnumerator Rice() {
-		if (facingRight) {
+		//if (facingRight) {
 			GameObject Rice = (GameObject)Instantiate (throwingRice);
 			Rice.transform.position = riceSpawn.transform.position;
 			Rice.name = "Sticky Rice";
 			yield return new WaitForSeconds (0.5f);
-		} /*else {
+		 /*else {
 			GameObject Projectile = (GameObject)Instantiate (projectileLeft);
 			Projectile.transform.position = projectileSpawn.transform.position;
 			Projectile.name = "bullet";

@@ -315,14 +315,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc37ae95998e07948b53fef81f7cd323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onGround: 0
-  onRWall: 0
-  onLWall: 0
+  onWall: 0
+  jump: 0
   wallJump: 1
   rigidBody2D: {fileID: 411091254}
   groundCheck: {fileID: 1305143061}
-  wallCheckR: {fileID: 505471810}
-  wallCheckL: {fileID: 1584048932}
+  wallCheck: {fileID: 0}
   horizontal: 0
 --- !u!212 &411091256
 SpriteRenderer:
@@ -1012,11 +1010,15 @@ MonoBehaviour:
   onWall: 0
   jump: 0
   wallJump: 1
-  canKillP2: 0
-  canKillP3: 0
+  riceThrow: 0
+  p1Throw: 0
   rigidBody2D: {fileID: 1272068582}
   groundCheck: {fileID: 867434103}
   wallCheck: {fileID: 1440178153}
+  stuck: 0
+  player1Attacking: 0
+  riceSpawn: {fileID: 0}
+  throwingRice: {fileID: 0}
   horizontal: 0
 --- !u!212 &1272068584
 SpriteRenderer:
@@ -1192,7 +1194,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ae51bf76b146e3841a2b649ccbecc087, type: 2}
+  - {fileID: 2100000, guid: 02df6f1e8419b48dca7a8a75057dc530, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -1812,14 +1814,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0383422c29360d247addf4293ff9ea27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onGround: 0
-  onRWall: 0
-  onLWall: 0
+  onWall: 0
+  jump: 0
   wallJump: 1
+  riceThrow: 0
+  p2Throw: 0
+  stuck: 0
+  player2Attacking: 0
+  riceSpawn: {fileID: 0}
+  throwingRice: {fileID: 0}
   rigidBody2D: {fileID: 2051217034}
   groundCheck: {fileID: 968051997}
-  wallCheckR: {fileID: 735036896}
-  wallCheckL: {fileID: 1302688888}
+  wallCheck: {fileID: 0}
   horizontal: 0
 --- !u!50 &2051217034
 Rigidbody2D:
